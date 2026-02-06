@@ -8,14 +8,14 @@ BUILD_PATH = build
 OBJECT_BUILD_PATH = build/objects
 
 SOURCE_PATH = source
-SOURCE_SOURCES = $(wildcard $(INTERFACEIO_PATH)/*.c)
+SOURCE_SOURCES = $(wildcard $(SOURCE_PATH)/*.c)
 SOURCE_OBJECT_BUILD_PATH = $(OBJECT_BUILD_PATH)/source
-SOURCE_OBJECTS = $(addprefix $(OBJECT_BUILD_PATH)/,$(patsubst %.c,%.o,$(patsubst source/%,%,$(SOURCE_SOURCES))))
+SOURCE_OBJECTS = $(addprefix $(OBJECT_BUILD_PATH)/,$(patsubst %.c,%.o,$(SOURCE_SOURCES)))
 
-TEST_PATH = source/test
+TEST_PATH = test
 TEST_SOURCES = $(wildcard $(TEST_PATH)/*.c)
 TEST_OBJECT_BUILD_PATH = $(OBJECT_BUILD_PATH)/test
-TEST_OBJECTS = $(addprefix $(OBJECT_BUILD_PATH)/,$(patsubst %.c,%.o,$(patsubst source/%,%,$(TEST_SOURCES))))
+TEST_OBJECTS = $(addprefix $(OBJECT_BUILD_PATH)/,$(patsubst %.c,%.o,$(TEST_SOURCES)))
 
 all : main
 
@@ -26,11 +26,11 @@ folders:
 	mkdir -p $(SOURCE_OBJECT_BUILD_PATH)
 	mkdir -p $(TEST_OBJECT_BUILD_PATH)
 
-$(SOURCE_OBJECTS) : %.o :
+$(SOURCE_OBJECTS) : $(OBJECT_BUILD_PATH)/%.o : %.c
 	gcc $($(BUILD_TYPE)_FLAGS) -I $(INCLUDE_PATH) -c $(patsubst $(OBJECT_BUILD_PATH)/%,source/%,$*.c) -o $@
 
-$(TEST_OBJECTS) : %.o :
-	gcc $($(BUILD_TYPE)_FLAGS) -I $(INCLUDE_PATH) -c $(patsubst $(OBJECT_BUILD_PATH)/%,source/%,$*.c) -o $@
+$(TEST_OBJECTS) : $(OBJECT_BUILD_PATH)/%.o : %.c
+	gcc $($(BUILD_TYPE)_FLAGS) -I $(INCLUDE_PATH) -c $(patsubst $(OBJECT_BUILD_PATH)/%,%,$*.c) -o $@
 
 OPERATOR_SYSTEM ?= WINDOWS
 EXECUTABLE_SUFFIX := .exe
