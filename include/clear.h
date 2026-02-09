@@ -2,6 +2,6 @@
 #define __CLEAR_H__
 
 void clear_stdio();
-void clearScreenWinAPI();
+void clear_screen();
 
 #endif

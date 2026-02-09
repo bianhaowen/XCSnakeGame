@@ -10,7 +10,7 @@ void clear_stdio()
     _flushall();
 }
 
-void clearScreenWinAPI()
+void clear_screen()
 {
     HANDLE stdout_handle = GetStdHandle(STD_OUTPUT_HANDLE);
 

@@ -3,7 +3,7 @@
 #include <conio.h>
 #include <windows.h>
 
-#include "../include/clear.h"
+#include "../include/all.h"
 
 int main()
 {
