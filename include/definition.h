@@ -1,28 +1,34 @@
 #ifndef __DEFINITION_H__
 #define __DEFINITION_H__
 
-const uint64_t EXTENSION_CODE = 0xFFFFFFE0;
-const uint8_t UP = 72;
-const uint8_t DOWN = 80;
-const uint8_t LEFT = 75;
-const uint8_t RIGHT = 77;
+#include <stdint.h>
 
-const char black_font[] = "\x1B[30m";
-const char red_font[] = "\x1B[31m";
-const char green_font[] = "\x1B[32m";
-const char yellow_font[] = "\x1B[33m";
-const char blue_font[] = "\x1B[34m";
-const char perple_font[] = "\x1B[35m";
-const char cyan_font[] = "\x1B[36m";
-const char white_font[] = "\x1B[37m";
+extern const uint64_t EXTENSION_CODE;
+extern const uint8_t UP;
+extern const uint8_t DOWN;
+extern const uint8_t LEFT;
+extern const uint8_t RIGHT;
 
-const char black_background[] = "\x1B[40m";
-const char red_background[] = "\x1B[41m";
-const char green_background[] = "\x1B[42m";
-const char yellow_background[] = "\x1B[43m";
-const char blue_background[] = "\x1B[44m";
-const char perple_background[] = "\x1B[45m";
-const char cyan_background[] = "\x1B[46m";
-const char white_background[] = "\x1B[47m";
+extern const char black_text[];
+extern const char red_text[];
+extern const char green_text[];
+extern const char yellow_text[];
+extern const char blue_text[];
+extern const char perple_text[];
+extern const char cyan_text[];
+extern const char white_text[];
+
+extern const char *text_colors[];
+
+extern const char black_background[];
+extern const char red_background[];
+extern const char green_background[];
+extern const char yellow_background[];
+extern const char blue_background[];
+extern const char perple_background[];
+extern const char cyan_background[];
+extern const char white_background[];
+
+extern const char *background_colors[];
 
 #endif
