@@ -3,11 +3,16 @@
 
 #include <stdint.h>
 
-extern const uint64_t EXTENSION_CODE;
-extern const uint8_t UP;
-extern const uint8_t DOWN;
-extern const uint8_t LEFT;
-extern const uint8_t RIGHT;
+typedef enum ANSI
+{
+    EXTENSION_CODE = 224,
+    UP = 72,
+    DOWN = 80,
+    LEFT = 75,
+    RIGHT = 77,
+    QUIT = 3,
+    ENTER = 13
+} ANSI;
 
 extern const char black_text[];
 extern const char red_text[];

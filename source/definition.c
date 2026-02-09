@@ -1,10 +1,12 @@
 #include <stdint.h>
 
-const uint64_t EXTENSION_CODE = 0xFFFFFFE0;
-const uint8_t UP = 72;
-const uint8_t DOWN = 80;
-const uint8_t LEFT = 75;
-const uint8_t RIGHT = 77;
+#include "../include/definition.h"
+
+// const uint64_t EXTENSION_CODE = 0xFFFFFFE0;
+// const uint8_t UP = 72;
+// const uint8_t DOWN = 80;
+// const uint8_t LEFT = 75;
+// const uint8_t RIGHT = 77;
 
 const char black_text[] = "\x1B[30m";
 const char red_text[] = "\x1B[31m";
