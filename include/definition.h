@@ -14,6 +14,13 @@ typedef enum ANSI
     ENTER = 13
 } ANSI;
 
+typedef enum DIFFICULTY
+{
+    MINIMUM_DIFFICULTY = 1,
+    DEFAULT_DIFFICULTY = 5,
+    MAXIMUM_DIFFICULTY = 10
+} DIFFICULTY;
+
 extern const char black_text[];
 extern const char red_text[];
 extern const char green_text[];

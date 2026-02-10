@@ -9,9 +9,10 @@
 #include "../include/menu.h"
 #include "../include/settings.h"
 
+char title[] = "Welcome to play XINCHENG's snake game.\n";
 char *menu_text[MENU_ITEMS_NUMBER] = {
-    "Welcome to play XINCHENG's snake game.\n", "Let's go!\n",
-    "game difficulty: ◀ %u ▶\n", "Looking forward to our next encounter.\n"};
+    "Let's go\n", "game difficulty: ◀ %u ▶\n",
+    "Looking forward to our next encounter\n"};
 Settings settings;
 uint8_t now_choice;
 
@@ -20,23 +21,39 @@ void print_menu()
     clear_stdio();
     clear_screen();
 
-    size_t i = 0;
-    for (i = 0; i < MENU_ITEMS_NUMBER; i = i + 1)
+    printf_s(title);
+
+    if (now_choice == 0)
     {
-        if (i == now_choice)
-        {
-            print_colorfully(BLACK, WHITE, menu_text[i]);
-        }
-        else
-        {
-            printf_s(menu_text[i]);
-        }
+        print_colorfully(BLACK, WHITE, menu_text[0]);
+    }
+    else
+    {
+        printf_s(menu_text[0]);
+    }
+
+    if (now_choice == 1)
+    {
+        print_colorfully(BLACK, WHITE, menu_text[1], settings.difficulty);
+    }
+    else
+    {
+        printf_s(menu_text[1], settings.difficulty);
+    }
+
+    if (now_choice == 2)
+    {
+        print_colorfully(BLACK, WHITE, menu_text[2]);
+    }
+    else
+    {
+        printf_s(menu_text[2]);
     }
 }
 
 void menu()
 {
-    settings.difficulty = 5;
+    settings.difficulty = DEFAULT_DIFFICULTY;
     now_choice = 0;
 
     print_menu();
@@ -61,13 +78,27 @@ void menu()
             case LEFT:
                 if (now_choice == GAME_DIFFICULITY)
                 {
-                    settings.difficulty = (settings.difficulty - 1) % 10 + 1;
+                    if (settings.difficulty != MINIMUM_DIFFICULTY)
+                    {
+                        settings.difficulty = settings.difficulty - 1;
+                    }
+                    else
+                    {
+                        settings.difficulty = MAXIMUM_DIFFICULTY;
+                    }
                 }
                 break;
             case RIGHT:
                 if (now_choice == GAME_DIFFICULITY)
                 {
-                    settings.difficulty = (settings.difficulty + 1) % 10 + 1;
+                    if (settings.difficulty != MAXIMUM_DIFFICULTY)
+                    {
+                        settings.difficulty = settings.difficulty + 1;
+                    }
+                    else
+                    {
+                        settings.difficulty = MINIMUM_DIFFICULTY;
+                    }
                 }
                 break;
             case QUIT:
@@ -89,8 +120,6 @@ void menu()
             case 1:
                 break;
             case 2:
-                break;
-            case 3:
                 return;
                 break;
             }

@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <windows.h>
 
+#include "../include/clear.h"
 #include "../include/color.h"
 #include "../include/menu.h"
 
@@ -48,6 +49,8 @@ int main()
     // printf("Bye Bye Color!\n");
 
     menu();
+    clear_screen();
+    clear_stdio();
 
     return 0;
 }

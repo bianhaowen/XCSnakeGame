@@ -1,11 +1,11 @@
 #ifndef __MENU_H__
 #define __MENU_H__
 
-enum Menu
+typedef enum MENU
 {
-    MENU_ITEMS_NUMBER = 4,
-    GAME_DIFFICULITY = 2
-};
+    MENU_ITEMS_NUMBER = 3,
+    GAME_DIFFICULITY = 1
+} MENU;
 
 void menu();
 
