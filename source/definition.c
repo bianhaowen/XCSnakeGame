@@ -2,6 +2,8 @@
 
 #include "../include/definition.h"
 
+const uint64_t HUNDRED_MILLISECOND = 100;
+
 // const uint64_t EXTENSION_CODE = 0xFFFFFFE0;
 // const uint8_t UP = 72;
 // const uint8_t DOWN = 80;

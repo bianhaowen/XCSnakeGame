@@ -3,6 +3,15 @@
 
 #include <stdint.h>
 
+extern const uint64_t HUNDRED_MILLISECOND;
+
+#define SPACE ' '
+#define EMAIL '@'
+#define EXCLAMATION '!'
+
+#define SNAKE_BODY EMAIL
+#define FOOD EXCLAMATION
+
 typedef enum ANSI
 {
     EXTENSION_CODE = 224,
@@ -11,7 +20,9 @@ typedef enum ANSI
     LEFT = 75,
     RIGHT = 77,
     QUIT = 3,
-    ENTER = 13
+    ENTER = 13,
+    Q = 'Q',
+    Q_LOWERCASE = 'q'
 } ANSI;
 
 typedef enum DIFFICULTY

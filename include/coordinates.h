@@ -5,8 +5,8 @@
 
 typedef struct Coordinates
 {
-    uint8_t x;
-    uint8_t y;
+    uint32_t x;
+    uint32_t y;
 } Coordinates;
 
 #endif
