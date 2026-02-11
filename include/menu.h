@@ -7,6 +7,7 @@ typedef enum MENU
     GAME_DIFFICULITY = 1
 } MENU;
 
+void print_menu();
 void menu();
 
 #endif

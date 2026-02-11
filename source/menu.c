@@ -6,6 +6,7 @@
 #include "../include/clear.h"
 #include "../include/color.h"
 #include "../include/definition.h"
+#include "../include/game.h"
 #include "../include/menu.h"
 #include "../include/settings.h"
 
@@ -55,12 +56,11 @@ void menu()
 {
     settings.difficulty = DEFAULT_DIFFICULTY;
     now_choice = 0;
-
-    print_menu();
+    ANSI input = EXTENSION_CODE;
 
     while (true)
     {
-        ANSI input = EXTENSION_CODE;
+        print_menu();
         input = getch();
 
         if (input == EXTENSION_CODE)
@@ -70,7 +70,14 @@ void menu()
             switch (input)
             {
             case UP:
-                now_choice = (now_choice - 1) % MENU_ITEMS_NUMBER;
+                if (now_choice == 0)
+                {
+                    now_choice = 2;
+                }
+                else
+                {
+                    now_choice = (now_choice - 1) % MENU_ITEMS_NUMBER;
+                }
                 break;
             case DOWN:
                 now_choice = (now_choice + 1) % MENU_ITEMS_NUMBER;
@@ -101,21 +108,16 @@ void menu()
                     }
                 }
                 break;
-            case QUIT:
-                break;
-            case ENTER:
-                break;
-            case EXTENSION_CODE:
+            default:
                 break;
             }
-
-            print_menu();
         }
         else if (input == ENTER)
         {
             switch (now_choice)
             {
             case 0:
+                game(&settings);
                 break;
             case 1:
                 break;
@@ -125,6 +127,10 @@ void menu()
             }
         }
         else if (input == QUIT)
+        {
+            return;
+        }
+        else if (input == Q_LOWERCASE || input == Q)
         {
             return;
         }
