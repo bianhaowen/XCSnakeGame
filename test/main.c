@@ -1,6 +1,8 @@
 #include <stdarg.h>
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <wchar.h>
 
 #include <conio.h>
 #include <windows.h>
@@ -29,8 +31,6 @@ int main()
     // clearScreenWinAPI();
     // printf("2\n");
 
-    // menu();
-
     // char choice = 0;
     // choice = getch();
     // printf("%u\n", (uint64_t)choice);
@@ -47,6 +47,33 @@ int main()
 
     // print_colorfully(BLACK, WHITE, "Hello Color!\n");
     // printf("Bye Bye Color!\n");
+
+    // size_t i = 0;
+    // char circle2[] = "◯";
+    // for (i = 0; i < 4; ++i)
+    // {
+    //     printf_s("%u\n", (uint8_t)circle2[i]);
+    // }
+    // printf_s("%s\n", circle2);
+    // char circle4[] = "Ⓜ";
+    // for (i = 0; i < 4; ++i)
+    // {
+    //     printf_s("%u\n", (uint8_t)circle4[i]);
+    // }
+    // printf_s("%s\n", circle4);
+    // char ice[] = "🧊";
+    // for (i = 0; i < 4; ++i)
+    // {
+    //     printf_s("%u\n", (uint8_t)ice[i]);
+    // }
+    // printf_s("%s\n", ice);
+    // printf_s("%u\n", (uint8_t)ice[0]);
+    // printf_s("%u\n", (uint8_t)ice[1]);
+    // printf_s("%u\n", (uint8_t)ice[2]);
+    // printf_s("%u\n", (uint8_t)ice[3]);
+
+    // bool a = true;
+    // printf("sizeof(bool) = %llu\n", sizeof(a));
 
     menu();
     clear_screen();
